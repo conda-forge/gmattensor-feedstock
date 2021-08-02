@@ -9,7 +9,6 @@ package:
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 269dae1e84daa5156926b55d8801187383e162939dc6a4afdbe5f2d8d4ec5351
-  patches: mypatch.patch
 
 build:
   number: 0
