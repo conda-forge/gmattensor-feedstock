@@ -14,10 +14,6 @@ build:
   number: 0
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
 
-requirements:
-  build:
-    - {{ compiler('cxx') }}  # [build_platform != target_platform]
-
 outputs:
 
   - name: {{ name|lower }}
