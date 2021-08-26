@@ -13,6 +13,7 @@ source:
 build:
   number: 0
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
+  skip: True  # [python_impl == 'pypy']
 
 outputs:
 
@@ -23,14 +24,10 @@ outputs:
 
     requirements:
       build:
-        - python                              # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - setuptools_scm                      # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
         - make  # [unix]
       host:
-        - setuptools_scm
         - xtensor
       run:
         - xtensor
@@ -54,27 +51,30 @@ outputs:
       build:
         - python                              # [build_platform != target_platform]
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - numpy                               # [build_platform != target_platform]
+        - numpy *                             # [build_platform != target_platform]
         - setuptools_scm                      # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
         - ninja
       host:
-        - python
+        - numpy *
         - pip
+        - pybind11
+        - python
+        - scikit-build
         - setuptools_scm
-        - numpy
         - xtensor
         - xtensor-python
-        - pyxtensor  # [win]
       run:
         - python
+        - numpy *
 
     test:
       imports:
         - {{ name }}
       commands:
         - pip check
+        - python -c "import {{ name }}; {{ name }}.version()"
       requires:
         - pip
 
