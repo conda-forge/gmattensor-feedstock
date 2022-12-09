@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "GMatTensor" %}
-{% set version = "0.10.4" %}
+{% set version = "0.10.6" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c9ddd0d770e758e547663baade6cb5515672ebd36ab29f6dbcd2e41e6c6b2b7b
+  sha256: bbbd486f44cba693a77d216709631c2c3139b1e7e523ff1fcced2100c4a19e59
 
 build:
   number: 1
