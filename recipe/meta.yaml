@@ -31,9 +31,9 @@ outputs:
         - cmake
         - make  # [unix]
       host:
-        - xtensor
+        - xtensor <0.26
       run:
-        - xtensor
+        - xtensor <0.26
 
     test:
       commands:
@@ -74,7 +74,7 @@ outputs:
         - python
         - scikit-build
         - setuptools_scm
-        - xtensor
+        - xtensor <0.26
         - xtensor-python
       run:
         - numpy *
