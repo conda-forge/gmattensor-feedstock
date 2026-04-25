@@ -11,7 +11,7 @@ source:
   sha256: bbbd486f44cba693a77d216709631c2c3139b1e7e523ff1fcced2100c4a19e59
 
 build:
-  number: 3
+  number: 4
 
 outputs:
 
@@ -31,9 +31,9 @@ outputs:
         - cmake
         - make  # [unix]
       host:
-        - xtensor
+        - xtensor <0.26
       run:
-        - xtensor
+        - xtensor <0.26
 
     test:
       commands:
@@ -74,7 +74,7 @@ outputs:
         - python
         - scikit-build
         - setuptools_scm
-        - xtensor
+        - xtensor <0.26
         - xtensor-python
       run:
         - numpy *
